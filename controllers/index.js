@@ -2,9 +2,10 @@ const axios = require("axios");
 exports.post_textual_data = async (req, res) => {
   var message = req.query.message;
   var token = req.query.token;
+  var id = req.query.id;
   var config = {
     method: "post",
-    url: `https://graph.facebook.com/v11.0/106144901759881/feed?message=${message}&access_token=${token}`,
+    url: `https://graph.facebook.com/v11.0/${id}/feed?message=${message}&access_token=${token}`,
     headers: {},
   };
   axios(config)
@@ -25,9 +26,10 @@ exports.post_textual_data = async (req, res) => {
 
 exports.get_posts_of_page = async (req, res) => {
   var token = req.query.token;
+  var id = req.query.id;
   var config = {
     method: "get",
-    url: `https://graph.facebook.com/v11.0/106144901759881/feed?&access_token=${token}`,
+    url: `https://graph.facebook.com/v11.0/${id}/feed?&access_token=${token}`,
     headers: {},
   };
   axios(config)
