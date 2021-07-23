@@ -10,6 +10,17 @@ Documentation for the following is given in the provided link:
 
 [postman link](https://documenter.getpostman.com/view/10262868/TzsYP9UP)
 
+## Mongo DB Schema
+``` js
+payload = {
+    name: res.name,
+    image: res.picture.data.url,
+    email: res.email,
+    id: res.id,
+    userId: res.userID
+}
+```
+
 ## Deprication !!
 
 API for commenting has been depricated by [Facebook](facebook.com) therefore has not been integrated here
