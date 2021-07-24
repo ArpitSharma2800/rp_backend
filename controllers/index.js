@@ -1,4 +1,5 @@
 const axios = require("axios");
+const user_model = require("./../model/user.js");
 exports.post_textual_data = async (req, res) => {
   var message = req.query.message;
   var token = req.query.token;
@@ -70,4 +71,24 @@ exports.load_comments_from_a_post = async (req, res) => {
         message: `${error}`,
       });
     });
+};
+
+exports.post = async (req, res) => {
+  try {
+    const data = new user_model({
+      name: req.query.name,
+      image: req.query.image,
+      email: req.query.email,
+      id: req.query.id,
+      userId: req.query.userId,
+    });
+    const success = await data.save();
+    return res.status(201).json({
+      status: "success",
+      user_created: "true",
+      success,
+    });
+  } catch (err) {
+    res.json(err);
+  }
 };
